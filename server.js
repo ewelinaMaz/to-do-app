@@ -26,7 +26,7 @@ const server = app.listen(8000, () => {
           socket.broadcast.emit('addTask', task);
       });
       socket.on('removeTask', id => {
-          console.log('Task with index' + id + 'removed');
+          console.log('Task ' + id + 'removed');
           tasks.filter(task => task.id !== id);
           socket.broadcast.emit('removeTask', id);
       });

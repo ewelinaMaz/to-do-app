@@ -47,7 +47,7 @@ class App extends React.Component {
     const newTask = {name: this.state.taskName, id: uuidv4()};
     this.addTask(newTask);
     this.socket.emit('addTask', newTask);
-    this.setState({newTask:''});
+    this.setState({taskName: ''});
   }
 
   render() {
@@ -67,7 +67,7 @@ class App extends React.Component {
                 {task.name}
                 <button
                   className="btn btn--red"
-                  onClick={() => this.removeTask(tasks.id(task), true)}
+                  onClick={() => this.removeTask(task.id, true)}
                 >
                   Remove
                 </button>
